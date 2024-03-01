@@ -1,0 +1,6 @@
+.DS_Store
+checkpoints/
+*.pyc
+*.pyo
+figment/assets/*_tfjs*
+pix2pix_training/output/
