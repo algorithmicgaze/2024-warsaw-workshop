@@ -3,4 +3,6 @@ checkpoints/
 *.pyc
 *.pyo
 figment/assets/*_tfjs*
-pix2pix_training/output/
+training_local/output/
+training_local/datasets/
+.ipynb_checkpoints
