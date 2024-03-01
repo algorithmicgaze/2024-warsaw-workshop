@@ -18,7 +18,7 @@ Save all output files as `.jpg` files in a directory; then create a ZIP file of 
 
 # Training on Colab
 
-The `pix2pix_training/pix2pix_train_colab.ipynb` script is set up to run in [Google Colab](https://colab.research.google.com/):
+The `training_colab/pix2pix_train_colab.ipynb` script is set up to run in [Google Colab](https://colab.research.google.com/):
 
 **[Open training notebook in Google Colab](https://colab.research.google.com/github/algorithmicgaze/2024-warsaw-workshop/blob/main/training_colab/pix2pix_train_colab.ipynb)**
 
@@ -41,6 +41,34 @@ To run the model in realtime in Figment, you'll need to convert it to TensorFlow
 1. Upload the generator.zip file you downloaded from the last step, or connect the notebook to Google Drive.
 2. Run all cells to do the conversion.
 3. The last cell will download a `tfjs.zip` file. Put that in your Figment project folder.
+
+# Training On Your Own Machine
+
+The `training_local/pix2pix_train_local.ipynb` script runs in Jupyter Notebook. Here's some setup to do first:
+
+## Windows Setup
+
+- Make sure you have a machine with a NVIDIA graphics card. Install the latest [NVIDIA driver](https://www.nvidia.com/download/index.aspx).
+- Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). Open PowerShell or Windows Command Prompt in administrator mode by right-clicking and selecting "Run as administrator", enter the wsl --install command, then restart your machine.
+
+```bash
+wsl --install
+```
+
+- Set up a user and password for the Linux distribution.
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+- Make sure WSL 2 is enabled in Docker Desktop settings.
+- From a command prompt, run the following command to start Jupyter notebook:
+
+```bash
+cd DIRECTORY_CONTAINING_WORKSHOP_FILES
+docker run -it --rm -p 8888:8888 -v ${PWD}:/tf --gpus all tensorflow/tensorflow:latest-gpu-jupyter
+```
+
+- Once it has started, ctrl-click the link starting with http://127.0.0.1. You should see the Jupyter notebook window.
+- Click the `training_local` directory, then the `pix2pix_train_local.ipynb` file to open it.
+- Go through each cell using shift-ENTER to run them.
+
 
 # Inference
 
